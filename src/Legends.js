@@ -1,17 +1,19 @@
-import { useState } from "react";
 
-
-
-const Legends = ({label,color}) => {
-
+const Legends = ({legends}) => {
 
     return(
         <>
-        <div>
-            <li>{label}</li>
-            <div></div>
-        </div>
-            
+        {Object.keys(legends).map((key,i)=>(
+        
+        <ul key={i}>{legends[key].map((list,index) =>(
+          <div key={index}>
+            <li >{list.Label}</li>
+            <div ></div>
+          </div>
+          ))}
+        </ul>
+      ))}
+
 
         </>
     )

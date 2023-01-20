@@ -1,27 +1,19 @@
-import { useState } from 'react';
+
 import data from './Legends.json'
 
-const MainButton = ({btn,id,key,onClickFunc,liftUpData,LegendId}) => {
-
-    
-
-
-    
+const MainButton = ({menu,onClickFunc,liftUpData}) => {
     return(
         <>
-        {/* <form onSubmit={handleSubmit}></form> */}
-            <button
-            id={id}
-            key={key}
-            onClick={()=> liftUpData(onClickFunc(data,LegendId))}
-            
-            >
-            {btn}
-            </button>
+        {Object.keys(menu).map((key,i) => (
+        <button
+        id={menu[key].map(d => d.Id)}
+        key={i}
+        onClick={()=> liftUpData(onClickFunc(data,menu[key].map(d => d.Id),menu[key].map(d => d.LegendId)))}
         
-        
-            
-            
+        >
+        {key}
+        </button> 
+        ))}
         </>
     )
 }

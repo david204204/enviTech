@@ -1,14 +1,15 @@
 import data from './Legends.json'
 
-const MonitorList = ({id,keyforChild,dataList,legendFunc,liftUpData}) => {
+const MonitorList = ({menuContent,legendFunc,liftUpData}) => {
     return (
         <>
-        <li 
-        id={id} 
-        key={keyforChild} 
-        onClick={()=>liftUpData(legendFunc(data,id))}> 
-            {dataList}
-        </li>
+        {Object.keys(menuContent).map((key,i)=>(
+            <li 
+            key={i} 
+            onClick={()=>liftUpData(legendFunc(data,menuContent[key].map(d => d.LegendId)))}> 
+                {key}
+            </li>
+        ))}
         </>
     )
 }
