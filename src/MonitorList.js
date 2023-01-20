@@ -1,8 +1,8 @@
 import data from './Legends.json'
-
+import './MonitorList.css'
 const MonitorList = ({menuContent,legendFunc,liftUpData}) => {
     return (
-        <>
+        <div className='monitor-content'>
         {Object.keys(menuContent).map((key,i)=>(
             <li 
             key={i} 
@@ -10,7 +10,7 @@ const MonitorList = ({menuContent,legendFunc,liftUpData}) => {
                 {key}
             </li>
         ))}
-        </>
+        </div>
     )
 }
 
